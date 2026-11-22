@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "rongmc_create_fly_ponder_fix",
+  "version": "${version}",
+  "name": "Create Fly Ponder Fix",
+  "description": "Fixes Create Fly ponder crashes: sided filter Side orElseThrow, deployer null OwnerName, and soft-fails ponder BE backup.",
+  "authors": [
+    "RongMC"
+  ],
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "rong.createflyfix.CreateFlyPonderFix"
+    ]
+  },
+  "mixins": [
+    "create_fly_ponder_fix.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "~26.3",
+    "create": ">=6.0.9-2 <6.0.10-0"
+  },
+  "provides": [
+    "create_fly_ponder_fix"
+  ],
+  "license": "GPL-3.0"
+}

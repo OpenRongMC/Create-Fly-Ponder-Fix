@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "rong.createflyfix.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ServerSidedFilteringBehaviourMixin",
+    "DeployerBlockEntityMixin"
+  ],
+  "client": [
+    "PonderLevelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
