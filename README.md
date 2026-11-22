@@ -1,31 +1,24 @@
-# Create Fly Ponder Fix (RongMC)
+# Create Fly Ponder Fix
 
-[中文](#中文) | [English](#english)
+RongMC 自研的小型修复模组，专门缓解 **Create Fly（26.3）** 在 Ponder 教程/部分方块实体场景下的崩溃。
 
-## 中文
+## 功能
 
-本仓库发布的是 **RongMC** 对 `Create Fly Ponder Fix` 的 Minecraft 26.3 Fabric 移植/维护或自研版本。
+针对 Create Fly 的 mixin 修复，主要包括：
 
-- Fabric mod id：`rongmc_create_fly_ponder_fix`（provides：`create_fly_ponder_fix`）
-- 许可证：**GNU GPL v3.0**
-- 本仓库包含完整源码（orphan 发布，Contributors 仅 ycrrongos）。
-- 部分改动由 vibecoding（AI 辅助编程）完成，并由人工审阅与测试。
-- 贡献者（Contributors）：仅 [ycrrongos](https://github.com/ycrrongos)
+1. **Sided filter**：避免 `Side.orElseThrow` 在 Ponder/无侧上下文空值崩溃。
+2. **Deployer**：`OwnerName` 为空时的空指针。
+3. **Ponder 方块实体备份**：失败时软失败，而不是直接把教程打崩。
 
-### 许可
+依赖：`create`（Create Fly 构建，版本范围见 `fabric.mod.json`）。
 
-以 GNU General Public License v3.0 发布（见 `LICENSE`）。若上游原作另有条款，移植改动部分仍按 GPL-3.0；使用时请同时尊重上游要求。
+Fabric id：`rongmc_create_fly_ponder_fix`（provides `create_fly_ponder_fix`）。
 
-## English
+## 已知问题
 
-**RongMC** Minecraft 26.3 Fabric port / maintenance / original build of `Create Fly Ponder Fix`.
+- 只覆盖已定位的崩溃点；Create 其它 Ponder 页或新版本回归不在保证范围。
+- 不能代替完整的 Create 源码级修复；Create 本体升级后可能需要重做 mixin。
 
-- Fabric mod id: `rongmc_create_fly_ponder_fix` (provides: `create_fly_ponder_fix`)
-- License: **GNU GPL v3.0**
-- This repository includes full source (orphan publish; contributor: ycrrongos only).
-- Some changes were made with vibecoding (AI-assisted coding), then reviewed and tested by humans.
-- Contributors: only [ycrrongos](https://github.com/ycrrongos)
+## 许可
 
-### License
-
-Released under GNU GPL v3.0 (see `LICENSE`). Respect upstream terms where applicable; RongMC changes are GPL-3.0.
+GPL-3.0（见 `LICENSE`）。
