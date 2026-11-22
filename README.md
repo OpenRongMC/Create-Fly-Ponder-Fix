@@ -1,24 +1,33 @@
-# Create Fly Ponder Fix
+# Create Fly Ponder 修复
 
-RongMC 自研的小型修复模组，专门缓解 **Create Fly（26.3）** 在 Ponder 教程/部分方块实体场景下的崩溃。
+简体中文 · [English](./README.en.md)
 
-## 功能
+修复 26.3 Create Fly 的若干已定位崩溃，包括 Ponder 无侧上下文、Deployer 缺 OwnerName，以及教程中的方块实体备份失败。
 
-针对 Create Fly 的 mixin 修复，主要包括：
+## 下载与安装
 
-1. **Sided filter**：避免 `Side.orElseThrow` 在 Ponder/无侧上下文空值崩溃。
-2. **Deployer**：`OwnerName` 为空时的空指针。
-3. **Ponder 方块实体备份**：失败时软失败，而不是直接把教程打崩。
+- 版本 · [v1.2.0+26.3](https://github.com/OpenRongMC/Create-Fly-Ponder-Fix/releases/tag/v1.2.0%2B26.3) (已发布)
+- 下载文件 · `rongmc-create-fly-ponder-fix-1.2.0.26.3.jar`
+- 运行环境 · Minecraft Java 26.3, Fabric, Java 25
+- Fabric Loader · `>=0.20.1`
+- Fabric 模组 ID · `rongmc_create_fly_ponder_fix`
+- JAR 声明的依赖 · [`create`](https://github.com/OpenRongMC/Create-Fly) `>=6.0.9-2 <6.0.10-0`
 
-依赖：`create`（Create Fly 构建，版本范围见 `fabric.mod.json`）。
+把发行 JAR 放入对应实例的 `mods/` 目录。与兼容范围内的 Create Fly 同用，版本范围以发行 JAR 中的 fabric.mod.json 为准。一整个服务端整合包优先沿用其指定配置。
 
-Fabric id：`rongmc_create_fly_ponder_fix`（provides `create_fly_ponder_fix`）。
+## 如何验证
 
-## 已知问题
+打开此前触发崩溃的 Ponder 场景，再检查部署器交互。反馈新崩溃时提供场景名、Create 版本和首段 mixin 或异常堆栈。
 
-- 只覆盖已定位的崩溃点；Create 其它 Ponder 页或新版本回归不在保证范围。
-- 不能代替完整的 Create 源码级修复；Create 本体升级后可能需要重做 mixin。
+## 开发
 
-## 许可
+构建入口见 [`build.gradle`](./build.gradle)。运行前检查脚本需要的工作区目录与依赖。
 
-GPL-3.0（见 `LICENSE`）。
+## 文档与反馈
+
+- [原 README（旧版指南、贡献者与署名）](https://github.com/OpenRongMC/Create-Fly-Ponder-Fix/blob/0ef939c669ba25432099413b2f3bca9a34507ef0/README.md)
+- [报告 RongMC 移植问题](https://github.com/OpenRongMC/Create-Fly-Ponder-Fix/issues) · 请附游戏版本、两端 JAR 文件名、复现步骤和相关日志。
+
+## 许可与署名
+
+请参阅本仓库的 [LICENSE](./LICENSE) 及原项目的许可、署名和第三方资源说明。
